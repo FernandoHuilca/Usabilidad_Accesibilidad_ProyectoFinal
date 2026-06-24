@@ -1,0 +1,30 @@
+{
+  "name": "usabilidad_accesibilidad_proyectofinal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss -i ./src/css/input.css -o ./src/css/layout.css",
+    "watch": "tailwindcss -i ./src/css/input.css -o ./src/css/layout.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoHuilca/Usabilidad_Accesibilidad_ProyectoFinal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FernandoHuilca/Usabilidad_Accesibilidad_ProyectoFinal/issues"
+  },
+  "homepage": "https://github.com/FernandoHuilca/Usabilidad_Accesibilidad_ProyectoFinal#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.1",
+    "tailwindcss": "^4.3.1"
+  }
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerir un libro – BibioTec</title>
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/forms.css">
+</head>
+<body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
+
+  <!-- ====== HEADER ====== -->
+  <div id="header-container"></div>
+
+  <!-- ====== MAIN ======================================================== -->
+  <main
+    id="main-content"
+    tabindex="-1"
+    class="flex-grow container mx-auto px-6 py-16 md:py-24 focus:outline-none"
+  >
+
+    <div class="form-section">
+
+      <!-- Encabezado de página -->
+      <p class="form-eyebrow">Tu Biblioteca Digital</p>
+
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-5">
+        Sugiere un nuevo <span class="text-primary">libro</span>
+      </h1>
+
+      <p class="text-lg text-gray-600 leading-relaxed font-light mb-10">
+        ¿Hay algún título que debería estar en nuestra colección?
+        Cuéntanos y lo evaluaremos para su adquisición.
+      </p>
+
+      <!-- Tarjeta del formulario -->
+      <div class="form-card">
+
+        <p class="required-note">
+          <span class="req-star" aria-hidden="true">*</span>
+          Campos obligatorios
+        </p>
+
+        <form
+          id="suggestion-form"
+          novalidate
+          aria-label="Formulario de sugerencia de libro"
+        >
+
+          <!-- Nombre del usuario (opcional) -->
+          <div class="field-group">
+            <label class="field-label" for="user-name">
+              Tu nombre
+            </label>
+            <input
+              class="field-input"
+              type="text"
+              id="user-name"
+              name="user-name"
+              autocomplete="name"
+              placeholder="Ej. María González"
+            />
+          </div>
+
+          <!-- Título del libro (obligatorio) -->
+          <div class="field-group">
+            <label class="field-label" for="book-title">
+              Título del libro
+              <span class="req-star" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="field-input"
+              type="text"
+              id="book-title"
+              name="book-title"
+              required
+              aria-required="true"
+              aria-describedby="book-title-error"
+              placeholder="Ej. Cien años de soledad"
+            />
+            <span
+              class="field-error"
+              id="book-title-error"
+              role="alert"
+              aria-live="assertive"
+            >
+              <!-- Icono de alerta inline SVG para no depender de fuente externa -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              Introduce el título del libro.
+            </span>
+          </div>
+
+          <!-- Autores (obligatorio) -->
+          <div class="field-group">
+            <label class="field-label" for="book-authors">
+              Autores
+              <span class="req-star" aria-hidden="true">*</span>
+            </label>
+            <span class="field-hint" id="book-authors-hint">
+              Separa varios autores con comas.
+            </span>
+            <input
+              class="field-input"
+              type="text"
+              id="book-authors"
+              name="book-authors"
+              required
+              aria-required="true"
+              aria-describedby="book-authors-hint book-authors-error"
+              placeholder="Ej. Gabriel García Márquez"
+            />
+            <span
+              class="field-error"
+              id="book-authors-error"
+              role="alert"
+              aria-live="assertive"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              Introduce al menos un autor.
+            </span>
+          </div>
+
+          <!-- Editorial (opcional) -->
+          <div class="field-group">
+            <label class="field-label" for="editorial">
+              Editorial
+            </label>
+            <input
+              class="field-input"
+              type="text"
+              id="editorial"
+              name="editorial"
+              placeholder="Ej. Sudamericana"
+            />
+          </div>
+
+          <!-- Motivo (opcional) -->
+          <div class="field-group">
+            <label class="field-label" for="reason">
+              Motivo de la sugerencia
+            </label>
+            <span class="field-hint" id="reason-hint">
+              ¿Por qué crees que este libro enriquecería la colección?
+            </span>
+            <textarea
+              class="field-textarea"
+              id="reason"
+              name="reason"
+              aria-describedby="reason-hint"
+              placeholder="Describe brevemente por qué recomiendas este libro..."
+            ></textarea>
+          </div>
+
+          <hr class="form-divider" aria-hidden="true" />
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="btn-primary"
+          >
+            <!-- Icono enviar -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+            Enviar sugerencia
+          </button>
+
+        </form>
+      </div><!-- /form-card -->
+
+    </div><!-- /form-section -->
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <div id="footer-container" class="mt-auto"></div>
+
+  <!-- ====== MODAL DE CONFIRMACIÓN ======================================== -->
+  <div
+    class="modal-backdrop"
+    id="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+    aria-describedby="modal-desc"
+  >
+    <div class="modal-box" id="modal-box">
+
+      <div class="modal-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+
+      <h2 class="modal-title" id="modal-title">¡Sugerencia enviada!</h2>
+
+      <p class="modal-body" id="modal-desc">
+        Gracias por contribuir a nuestra colección. El equipo de BibioTec
+        revisará tu propuesta y la evaluará para su adquisición.
+      </p>
+
+      <button class="btn-secondary" id="modal-close-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+        Aceptar
+      </button>
+
+    </div>
+  </div>
+  <script src="./js/loadComponents.js"></script>
+  <script src="./js/suggestion-form.js"></script>
+</body>
+</html>
