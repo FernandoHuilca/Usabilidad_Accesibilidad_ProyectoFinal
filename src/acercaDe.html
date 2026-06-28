@@ -2,555 +2,34 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acerca de Nosotros - BibioTec</title>
-  <meta name="description"
-    content="Conoce la mision, vision, valores y el equipo detras de BibioTec, la biblioteca digital de la Escuela Politecnica Nacional comprometida con la accesibilidad universal.">
-  <link rel="stylesheet" href="./css/global.css">
-  <style>
-    .about-hero {
-      position: relative;
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 60%, #047857 100%);
-      color: #fff;
-      padding: 5rem 1.5rem;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .about-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
-      opacity: .12;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .about-hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 750px;
-      margin: 0 auto;
-    }
-
-    .about-hero-eyebrow {
-      display: inline-block;
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: #6ee7b7;
-      margin-bottom: 1rem;
-    }
-
-    .about-hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
-      color: #fff;
-    }
-
-    .about-hero h1 span {
-      color: #fcd34d;
-    }
-
-    .about-hero-desc {
-      font-size: 1.125rem;
-      line-height: 1.7;
-      color: #d1fae5;
-      font-weight: 300;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .stats-bar {
-      background: #fff;
-      box-shadow: 0 4px 20px rgba(6, 78, 59, .1);
-      border-radius: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0;
-      margin: -2.5rem auto 3.5rem;
-      max-width: 860px;
-      position: relative;
-      z-index: 5;
-      overflow: hidden;
-    }
-
-    .stat-item {
-      flex: 1 1 180px;
-      padding: 1.75rem 1.5rem;
-      text-align: center;
-      border-right: 1px solid #f3f4f6;
-    }
-
-    .stat-item:last-child {
-      border-right: none;
-    }
-
-    .stat-number {
-      display: block;
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: #064e3b;
-      line-height: 1;
-      margin-bottom: .35rem;
-    }
-
-    .stat-label {
-      font-size: .85rem;
-      color: #6b7280;
-      font-weight: 500;
-    }
-
-    .about-section {
-      padding: 4rem 0;
-    }
-
-    .about-section+.about-section {
-      border-top: 1px solid #f3f4f6;
-    }
-
-    .section-eyebrow {
-      font-size: .75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: #c2410c;
-      display: block;
-      margin-bottom: .6rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.25rem);
-      font-weight: 800;
-      color: #111827;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: #4b5563;
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 600px;
-    }
-
-    .mv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .mv-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
-      transition: box-shadow .2s ease, transform .2s ease;
-    }
-
-    .mv-card:hover {
-      box-shadow: 0 8px 30px rgba(6, 78, 59, .1);
-      transform: translateY(-3px);
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .mv-card:hover {
-        transform: none;
-      }
-    }
-
-    .mv-card-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: .75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .mv-card-icon.green {
-      background: #d1fae5;
-      color: #064e3b;
-    }
-
-    .mv-card-icon.orange {
-      background: #ffedd5;
-      color: #c2410c;
-    }
-
-    .mv-card-icon.blue {
-      background: #dbeafe;
-      color: #1d4ed8;
-    }
-
-    .mv-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: .6rem;
-    }
-
-    .mv-card p {
-      font-size: .95rem;
-      color: #4b5563;
-      line-height: 1.65;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2.5rem;
-    }
-
-    .value-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      background: #f9fafb;
-      border-radius: .75rem;
-      padding: 1.25rem;
-      border: 1px solid #f3f4f6;
-    }
-
-    .value-dot {
-      width: .6rem;
-      height: .6rem;
-      border-radius: 50%;
-      background: #c2410c;
-      margin-top: .45rem;
-      flex-shrink: 0;
-    }
-
-    .value-item h4 {
-      font-size: .95rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: .25rem;
-    }
-
-    .value-item p {
-      font-size: .875rem;
-      color: #6b7280;
-      line-height: 1.6;
-    }
-
-    .history-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      margin-top: 2.5rem;
-    }
-
-    @media(max-width:767px) {
-      .history-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .history-img-wrap {
-      position: relative;
-    }
-
-    .history-img-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -.75rem;
-      background: #d1fae5;
-      border-radius: 1.5rem;
-      z-index: 0;
-    }
-
-    .history-img-wrap img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      border-radius: 1rem;
-      object-fit: cover;
-      height: 380px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .12);
-    }
-
-    .history-text p {
-      font-size: 1rem;
-      color: #4b5563;
-      line-height: 1.75;
-      margin-bottom: 1rem;
-    }
-
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
-      background: #000;
-    }
-
-    .video-wrapper iframe,
-    .video-wrapper video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .transcript-box {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: .75rem;
-      padding: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .transcript-toggle {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: .9rem;
-      font-weight: 600;
-      color: #064e3b;
-      padding: 0;
-      margin-bottom: .75rem;
-      border-radius: .25rem;
-    }
-
-    .transcript-toggle:focus-visible {
-      outline: 3px solid #c2410c;
-      outline-offset: 2px;
-    }
-
-    .transcript-toggle svg {
-      transition: transform .2s ease;
-      flex-shrink: 0;
-    }
-
-    .transcript-toggle[aria-expanded="true"] svg {
-      transform: rotate(180deg);
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .transcript-toggle svg {
-        transition: none;
-      }
-    }
-
-    .transcript-content {
-      font-size: .875rem;
-      color: #374151;
-      line-height: 1.7;
-    }
-
-    .transcript-content[hidden] {
-      display: none;
-    }
-
-    .transcript-content p {
-      margin-bottom: .5rem;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-      margin-top: 2.5rem;
-    }
-
-    .team-card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 1rem;
-      padding: 2rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
-      transition: box-shadow .2s ease, transform .2s ease;
-    }
-
-    .team-card:hover {
-      box-shadow: 0 10px 30px rgba(6, 78, 59, .1);
-      transform: translateY(-3px);
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .team-card:hover {
-        transform: none;
-      }
-    }
-
-    .team-avatar {
-      width: 6rem;
-      height: 6rem;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1rem;
-      border: 3px solid #d1fae5;
-    }
-
-    .team-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: .2rem;
-    }
-
-    .team-role {
-      font-size: .8rem;
-      font-weight: 600;
-      color: #c2410c;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      margin-bottom: .75rem;
-    }
-
-    .team-bio {
-      font-size: .875rem;
-      color: #6b7280;
-      line-height: 1.6;
-    }
-
-    .declaration-box {
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-      color: #fff;
-      border-radius: 1.25rem;
-      padding: 3rem 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .declaration-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      background: rgba(255, 255, 255, .15);
-      border: 1px solid rgba(255, 255, 255, .25);
-      border-radius: 2rem;
-      padding: .4rem 1rem;
-      font-size: .8rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 1.5rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    .declaration-subheading {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #6ee7b7;
-      margin: 1.25rem 0 .75rem;
-    }
-
-    .declaration-p {
-      font-size: .975rem;
-      line-height: 1.75;
-      color: #d1fae5;
-      margin-bottom: .75rem;
-    }
-
-    .declaration-contact-link {
-      color: #fcd34d;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      border-radius: .25rem;
-    }
-
-    .declaration-contact-link:hover {
-      color: #fef3c7;
-    }
-
-    .declaration-contact-link:focus-visible {
-      outline: 3px solid #fcd34d;
-      outline-offset: 2px;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-      margin-top: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: .4rem;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #d1fae5;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -1.65rem;
-      top: .3rem;
-      width: .75rem;
-      height: .75rem;
-      border-radius: 50%;
-      background: #064e3b;
-      border: 2px solid #6ee7b7;
-    }
-
-    .timeline-year {
-      font-size: .75rem;
-      font-weight: 700;
-      color: #c2410c;
-      letter-spacing: .05em;
-    }
-
-    .timeline-desc {
-      font-size: .95rem;
-      color: #374151;
-      margin-top: .15rem;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros - BibioTec</title>
+    <meta name="description"
+        content="Conoce la mision, vision, valores y el equipo detras de BibioTec, la biblioteca digital de la Escuela Politecnica Nacional comprometida con la accesibilidad universal.">
+    <link rel="stylesheet" href="./css/layout.css">
 </head>
 
 <body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
-  <div id="header-container"></div>
-  <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
+    <div id="header-container"></div>
+    <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
 
-    <!-- HERO -->
-    <section class="about-hero" aria-labelledby="hero-heading">
-      <div class="about-hero-inner">
-        <span class="about-hero-eyebrow">Tu Biblioteca Digital</span>
-        <h1 id="hero-heading">Conoce a <span>BibioTec</span></h1>
-        <p class="about-hero-desc">Somos la biblioteca digital de la Escuela Politecnica Nacional, comprometidos con
-          democratizar el acceso al conocimiento para todos, sin barreras y con los mas altos estandares de
-          accesibilidad.</p>
-      </div>
-    </section>
+        <!-- HERO -->
+        <section class="about-hero" aria-labelledby="hero-heading">
+            <div class="about-hero-inner">
+                <span class="about-hero-eyebrow">Tu Biblioteca Digital</span>
+                <h1 id="hero-heading">Conoce a <span>BibioTec</span></h1>
+                <p class="about-hero-desc">Somos la biblioteca digital de la Escuela Politecnica Nacional, comprometidos
+                    con
+                    democratizar el acceso al conocimiento para todos, sin barreras y con los mas altos estandares de
+                    accesibilidad.</p>
+            </div>
+        </section>
 
-    <div class="container mx-auto px-6">
+        <div class="container mx-auto px-6">
 
-      <!-- ESTADISTICAS -->
-      <!-- <div class="stats-bar" role="region" aria-label="Estadisticas de BibioTec">
+            <!-- ESTADISTICAS -->
+            <!-- <div class="stats-bar" role="region" aria-label="Estadisticas de BibioTec">
         <div class="stat-item">
           <span class="stat-number" aria-label="Mas de 15 000 libros digitales">15 000+</span>
           <span class="stat-label">Libros digitales</span>
@@ -569,113 +48,125 @@
         </div>
       </div> -->
 
-      <!-- MISION VISION -->
-      <section class="about-section" aria-labelledby="mvv-heading">
-        <span class="section-eyebrow" aria-hidden="true">Nuestra identidad</span>
-        <h2 class="section-title" id="mvv-heading">Mision, Vision y Pilares</h2>
-        <p class="section-subtitle">Los principios que guian cada decision que tomamos como biblioteca digital
-          comprometida con la comunidad educativa.</p>
-        <div class="mv-grid">
-          <article class="mv-card">
-            <div class="mv-card-icon green" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v4l3 3" />
-              </svg>
-            </div>
-            <h3>Nuestra Mision</h3>
-            <p>Facilitar el acceso equitativo, libre y sin barreras al conocimiento academico, cientifico y cultural a
-              todos los miembros de la Escuela Politecnica Nacional y la sociedad en general, mediante una plataforma
-              digital moderna, inclusiva y plenamente accesible.</p>
-          </article>
-          <article class="mv-card">
-            <div class="mv-card-icon orange" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <h3>Nuestra Vision</h3>
-            <p>Ser la referencia nacional en bibliotecas digitales accesibles e inclusivas, reconocida por su coleccion
-              diversa, sus altos estandares de usabilidad y su compromiso con la eliminacion de cualquier barrera de
-              acceso al conocimiento para personas con discapacidad.</p>
-          </article>
-          <article class="mv-card">
-            <div class="mv-card-icon blue" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                aria-hidden="true">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <h3>Nuestros Pilares</h3>
-            <p>Nos sustentamos en tres pilares: la <strong>accesibilidad universal</strong> como estandar irrenunciable,
-              la <strong>innovacion tecnologica</strong> para mejorar la experiencia del lector, y la
-              <strong>colaboracion academica</strong> para enriquecer nuestra coleccion.
-            </p>
-          </article>
-        </div>
-      </section>
+            <!-- MISION VISION -->
+            <section class="about-section" aria-labelledby="mvv-heading">
+                <span class="section-eyebrow" aria-hidden="true">Nuestra identidad</span>
+                <h2 class="section-title" id="mvv-heading">Mision, Vision y Pilares</h2>
+                <p class="section-subtitle">Los principios que guian cada decision que tomamos como biblioteca digital
+                    comprometida con la comunidad educativa.</p>
+                <div class="mv-grid">
+                    <article class="mv-card">
+                        <div class="mv-card-icon green" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 8v4l3 3" />
+                            </svg>
+                        </div>
+                        <h3>Nuestra Mision</h3>
+                        <p>Facilitar el acceso equitativo, libre y sin barreras al conocimiento academico, cientifico y
+                            cultural a
+                            todos los miembros de la Escuela Politecnica Nacional y la sociedad en general, mediante una
+                            plataforma
+                            digital moderna, inclusiva y plenamente accesible.</p>
+                    </article>
+                    <article class="mv-card">
+                        <div class="mv-card-icon orange" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3>Nuestra Vision</h3>
+                        <p>Ser la referencia nacional en bibliotecas digitales accesibles e inclusivas, reconocida por
+                            su coleccion
+                            diversa, sus altos estandares de usabilidad y su compromiso con la eliminacion de cualquier
+                            barrera de
+                            acceso al conocimiento para personas con discapacidad.</p>
+                    </article>
+                    <article class="mv-card">
+                        <div class="mv-card-icon blue" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                <path d="M2 17l10 5 10-5" />
+                                <path d="M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3>Nuestros Pilares</h3>
+                        <p>Nos sustentamos en tres pilares: la <strong>accesibilidad universal</strong> como estandar
+                            irrenunciable,
+                            la <strong>innovacion tecnologica</strong> para mejorar la experiencia del lector, y la
+                            <strong>colaboracion academica</strong> para enriquecer nuestra coleccion.
+                        </p>
+                    </article>
+                </div>
+            </section>
 
-      <!-- VALORES -->
-      <section class="about-section" aria-labelledby="values-heading">
-        <span class="section-eyebrow" aria-hidden="true">Lo que nos define</span>
-        <h2 class="section-title" id="values-heading">Valores Institucionales</h2>
-        <p class="section-subtitle">Cada interaccion con BibioTec esta guiada por valores que ponemos en practica todos
-          los dias.</p>
-        <ul class="values-grid" role="list" aria-label="Lista de valores institucionales">
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Inclusion</h4>
-              <p>Disenamos para todos, garantizando que ninguna persona quede excluida por sus capacidades o tecnologia.
-              </p>
-            </div>
-          </li>
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Excelencia Academica</h4>
-              <p>Cubrimos rigurosamente la calidad y relevancia de cada recurso que incorporamos a la coleccion.</p>
-            </div>
-          </li>
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Transparencia</h4>
-              <p>Comunicamos abiertamente nuestros procesos, politicas y el estado de conformidad de nuestros sistemas.
-              </p>
-            </div>
-          </li>
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Innovacion</h4>
-              <p>Adoptamos las mejores practicas tecnologicas y de diseno para ofrecer una experiencia de lectura
-                optima.</p>
-            </div>
-          </li>
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Privacidad</h4>
-              <p>Protegemos los datos de nuestros usuarios con las mas estrictas politicas de seguridad y privacidad.
-              </p>
-            </div>
-          </li>
-          <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
-            <div>
-              <h4>Comunidad</h4>
-              <p>Fomentamos la participacion activa de los usuarios en el crecimiento y mejora continua de la
-                biblioteca.</p>
-            </div>
-          </li>
-        </ul>
-      </section>
+            <!-- VALORES -->
+            <section class="about-section" aria-labelledby="values-heading">
+                <span class="section-eyebrow" aria-hidden="true">Lo que nos define</span>
+                <h2 class="section-title" id="values-heading">Valores Institucionales</h2>
+                <p class="section-subtitle">Cada interaccion con BibioTec esta guiada por valores que ponemos en
+                    practica todos
+                    los dias.</p>
+                <ul class="values-grid" role="list" aria-label="Lista de valores institucionales">
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Inclusion</h4>
+                            <p>Disenamos para todos, garantizando que ninguna persona quede excluida por sus capacidades
+                                o tecnologia.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Excelencia Academica</h4>
+                            <p>Cubrimos rigurosamente la calidad y relevancia de cada recurso que incorporamos a la
+                                coleccion.</p>
+                        </div>
+                    </li>
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Transparencia</h4>
+                            <p>Comunicamos abiertamente nuestros procesos, politicas y el estado de conformidad de
+                                nuestros sistemas.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Innovacion</h4>
+                            <p>Adoptamos las mejores practicas tecnologicas y de diseno para ofrecer una experiencia de
+                                lectura
+                                optima.</p>
+                        </div>
+                    </li>
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Privacidad</h4>
+                            <p>Protegemos los datos de nuestros usuarios con las mas estrictas politicas de seguridad y
+                                privacidad.
+                            </p>
+                        </div>
+                    </li>
+                    <li class="value-item"><span class="value-dot" aria-hidden="true"></span>
+                        <div>
+                            <h4>Comunidad</h4>
+                            <p>Fomentamos la participacion activa de los usuarios en el crecimiento y mejora continua de
+                                la
+                                biblioteca.</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-      <!-- HISTORIA -->
-      <!-- <section class="about-section" aria-labelledby="history-heading">
+            <!-- HISTORIA -->
+            <!-- <section class="about-section" aria-labelledby="history-heading">
         <span class="section-eyebrow" aria-hidden="true">Nuestra trayectoria</span>
         <h2 class="section-title" id="history-heading">Historia de BibioTec</h2>
         <div class="history-grid">
@@ -711,121 +202,133 @@
         </div>
       </section> -->
 
-      <!-- VIDEO INSTITUCIONAL -->
-      <section class="about-section" aria-labelledby="video-heading">
-        <span class="section-eyebrow" aria-hidden="true">Conocenos mejor</span>
-        <h2 class="section-title" id="video-heading">Video Institucional</h2>
-        <p class="section-subtitle" style="margin-bottom:2rem;">Descubre en minutos como BibioTec transforma el acceso
-          al conocimiento. El video incluye subtitulos en espanol activados por defecto y una transcripcion completa
-          disponible a continuacion.</p>
-        <div class="video-wrapper">
-          <video
-            id="institutional-video"
-            controls
-            preload="metadata"
-            poster="assets/images/Portada_Video.png"
-            aria-label="Video institucional de BibioTec: como democratizamos el acceso al conocimiento"
-          >
-            <source src="assets/multimedia/Presentacion.mp4" type="video/mp4">
-            <track
-              src="assets/multimedia/presentacion_subtitulos.vtt"
-              kind="subtitles"
-              srclang="es"
-              label="Español"
-              default
-            >
-            Tu navegador no soporta la reproducción de video.
-          </video>
-        </div>
-        <div class="transcript-box">
-          <button type="button" id="transcript-toggle-btn" class="transcript-toggle" aria-expanded="false"
-            aria-controls="transcript-panel">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-            Ver transcripcion completa del video
-          </button>
-          <div id="transcript-panel" role="region" aria-labelledby="transcript-toggle-btn" hidden>
-            <div class="transcript-content">
-              <p><strong>[00:00 - 00:15]</strong> Bienvenidos a BibioTec, la biblioteca digital de la Escuela
-                Politecnica Nacional. Un espacio creado para que el conocimiento llegue a todos, sin importar el lugar,
-                el dispositivo o las capacidades de cada persona.</p>
-              <p><strong>[00:16 - 00:35]</strong> Nuestra coleccion cuenta con mas de 15 000 titulos en areas de
-                ingenieria, ciencias, humanidades y artes. Cada libro esta catalogado cuidadosamente para facilitar su
-                busqueda y acceso.</p>
-              <p><strong>[00:36 - 01:00]</strong> Desde el inicio, disenamos BibioTec siguiendo las Pautas de
-                Accesibilidad para el Contenido Web, WCAG 2.2, en su nivel de conformidad AA. La plataforma es
-                completamente navegable con teclado, compatible con lectores de pantalla y adaptable a cualquier tamano
-                de pantalla.</p>
-              <p><strong>[01:01 - 01:25]</strong> Nuestro equipo esta compuesto por ingenieros de software,
-                especialistas en usabilidad y expertos en accesibilidad digital, comprometidos con la mejora continua de
-                la plataforma.</p>
-              <p><strong>[01:26 - 02:00]</strong> Te invitamos a explorar nuestra coleccion, sugerir nuevos titulos y
-                ser parte de nuestra comunidad. En BibioTec, el conocimiento es tuyo.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <!-- VIDEO INSTITUCIONAL -->
+            <section class="about-section" aria-labelledby="video-heading">
+                <span class="section-eyebrow" aria-hidden="true">Conocenos mejor</span>
+                <h2 class="section-title" id="video-heading">Video Institucional</h2>
+                <p class="section-subtitle" style="margin-bottom:2rem;">Descubre en minutos como BibioTec transforma el
+                    acceso
+                    al conocimiento. El video incluye subtitulos en espanol activados por defecto y una transcripcion
+                    completa
+                    disponible a continuacion.</p>
+                <div class="video-wrapper">
+                    <video id="institutional-video" controls preload="metadata" poster="assets/images/Portada_Video.png"
+                        aria-label="Video institucional de BibioTec: como democratizamos el acceso al conocimiento">
+                        <source src="assets/multimedia/Presentacion.mp4" type="video/mp4">
+                        <track src="assets/multimedia/presentacion_subtitulos.vtt" kind="subtitles" srclang="es"
+                            label="Español" default>
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+                <div class="transcript-box">
+                    <button type="button" id="transcript-toggle-btn" class="transcript-toggle" aria-expanded="false"
+                        aria-controls="transcript-panel">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                        Ver transcripcion completa del video
+                    </button>
+                    <div id="transcript-panel" role="region" aria-labelledby="transcript-toggle-btn" hidden>
+                        <div class="transcript-content">
+                            <p><strong>[00:00 - 00:05]</strong> Bienvenidos a BibioTec, la biblioteca digital de la
+                                Escuela
+                                Politecnica Nacional. Un espacio creado para que el conocimiento llegue a todos, sin
+                                importar el lugar,
+                                el dispositivo o las capacidades de cada persona.</p>
+                            <!-- <p><strong>[00:16 - 00:35]</strong> Nuestra coleccion cuenta con mas de 15 000 titulos en
+                                areas de
+                                ingenieria, ciencias, humanidades y artes. Cada libro esta catalogado cuidadosamente
+                                para facilitar su
+                                busqueda y acceso.</p>
+                            <p><strong>[00:36 - 01:00]</strong> Desde el inicio, disenamos BibioTec siguiendo las Pautas
+                                de
+                                Accesibilidad para el Contenido Web, WCAG 2.2, en su nivel de conformidad AA. La
+                                plataforma es
+                                completamente navegable con teclado, compatible con lectores de pantalla y adaptable a
+                                cualquier tamano
+                                de pantalla.</p> -->
+                            <p><strong>[00:05 - 00:15]</strong> Nuestro equipo esta compuesto por ingenieros de
+                                software,
+                                especialistas en usabilidad y expertos en accesibilidad digital, comprometidos con la
+                                mejora continua de
+                                la plataforma.</p>
+                            <p><strong>[00:15 - 00:20]</strong> Te invitamos a explorar nuestra coleccion, sugerir
+                                nuevos titulos y
+                                ser parte de nuestra comunidad. En BibioTec, el conocimiento es tuyo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- EQUIPO -->
-      <section class="about-section" aria-labelledby="team-heading">
-        <span class="section-eyebrow" aria-hidden="true">Las personas detras del proyecto</span>
-        <h2 class="section-title" id="team-heading">Nuestro Equipo</h2>
-        <p class="section-subtitle" style="margin-bottom:0;">Un grupo multidisciplinario de estudiantes e investigadores
-          de la Facultad de Ingenieria en Sistemas, especializados en usabilidad y accesibilidad digital.</p>
-        <ul class="team-grid" role="list" aria-label="Miembros del equipo de BibioTec">
-          <li>
-            <article class="team-card">
-              <img src="assets/images/Fotos_autores/Gregrory_Salazar.jpg" alt="Foto de Gregory Salazar, lider
+            <!-- EQUIPO -->
+            <section class="about-section" aria-labelledby="team-heading">
+                <span class="section-eyebrow" aria-hidden="true">Las personas detras del proyecto</span>
+                <h2 class="section-title" id="team-heading">Nuestro Equipo</h2>
+                <p class="section-subtitle" style="margin-bottom:0;">Un grupo multidisciplinario de estudiantes e
+                    investigadores
+                    de la Facultad de Ingenieria en Sistemas, especializados en usabilidad y accesibilidad digital.</p>
+                <ul class="team-grid" role="list" aria-label="Miembros del equipo de BibioTec">
+                    <li>
+                        <article class="team-card">
+                            <img src="assets/images/Fotos_autores/Gregrory_Salazar.jpg" alt="Foto de Gregory Salazar, lider
                 del proyecto BibioTec" class="team-avatar" width="96" height="96" loading="lazy" />
-              <p class="team-name">Gregory Salazar</p>
-              <p class="team-role">Lider de Proyecto y Accesibilidad</p>
-              <p class="team-bio">Estudiante de Ingenieria de Software con especializacion en auditorias WCAG. Ha
-                certificado tres plataformas educativas bajo WCAG 2.1 AA. Apasionado por el diseno centrado en el
-                usuario.</p>
-            </article>
-          </li>
-          <li>
-            <article class="team-card">
-              <img src="assets/images/Fotos_autores/Fernando_Huilca.jpg"
-                alt="Foto de Fernando Huilca, disenadora UX/UI del proyecto" class="team-avatar" width="96" height="96"
-                loading="lazy" />
-              <p class="team-name">Fernando Huilca</p>
-              <p class="team-role">Disenador UX/UI</p>
-              <p class="team-bio">Experto en diseno inclusivo y sistemas de diseno. Su trabajo se enfoca en crear
-                interfaces esteticamnete agradables y totalmente operables para personas con discapacidades visuales y
-                motoras.</p>
-            </article>
-          </li>
-          <li>
-            <article class="team-card">
-              <img src="assets/images/Fotos_autores/Mateo_Yunga.jpg"
-                alt="Foto de Mateo Yunga, desarrollador front-end del proyecto" class="team-avatar" width="96"
-                height="96" loading="lazy" />
-              <p class="team-name">Mateo Yunga</p>
-              <p class="team-role">Desarrollador Front-End</p>
-              <p class="team-bio">Especialista en HTML5 semantico, ARIA y pruebas de accesibilidad automatizadas.
-                Colabora activamente en proyectos de codigo abierto orientados a la inclusion digital en Latinoamerica.
-              </p>
-            </article>
-          </li>
-          <li>
-            <article class="team-card">
-              <img src="assets/images/Fotos_autores/Juan_Cofre.jpg"
-                alt="Foto de Juan Cofre, investigador en usabilidad del proyecto" class="team-avatar" width="96"
-                height="96" loading="lazy" />
-              <p class="team-name">Juan Cofre</p>
-              <p class="team-role">Investigador en Usabilidad</p>
-              <p class="team-bio">Realiza pruebas de usuario con personas en situacion de discapacidad y analiza
-                metricas de experiencia de usuario. Autor de estudios sobre accesibilidad en plataformas educativas
-                ecuatorianas.</p>
-            </article>
-          </li>
-        </ul>
-      </section>
+                            <p class="team-name">Gregory Salazar</p>
+                            <p class="team-role">Lider de Proyecto y Accesibilidad</p>
+                            <p class="team-bio">Estudiante de Ingenieria de Software con especializacion en auditorias
+                                WCAG. Ha
+                                certificado tres plataformas educativas bajo WCAG 2.1 AA. Apasionado por el diseno
+                                centrado en el
+                                usuario.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="team-card">
+                            <img src="assets/images/Fotos_autores/Fernando_Huilca.jpg"
+                                alt="Foto de Fernando Huilca, disenadora UX/UI del proyecto" class="team-avatar"
+                                width="96" height="96" loading="lazy" />
+                            <p class="team-name">Fernando Huilca</p>
+                            <p class="team-role">Disenador UX/UI</p>
+                            <p class="team-bio">Experto en diseno inclusivo y sistemas de diseno. Su trabajo se enfoca
+                                en crear
+                                interfaces esteticamnete agradables y totalmente operables para personas con
+                                discapacidades visuales y
+                                motoras.</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="team-card">
+                            <img src="assets/images/Fotos_autores/Mateo_Yunga.jpg"
+                                alt="Foto de Mateo Yunga, desarrollador front-end del proyecto" class="team-avatar"
+                                width="96" height="96" loading="lazy" />
+                            <p class="team-name">Mateo Yunga</p>
+                            <p class="team-role">Desarrollador Front-End</p>
+                            <p class="team-bio">Especialista en HTML5 semantico, ARIA y pruebas de accesibilidad
+                                automatizadas.
+                                Colabora activamente en proyectos de codigo abierto orientados a la inclusion digital en
+                                Latinoamerica.
+                            </p>
+                        </article>
+                    </li>
+                    <li>
+                        <article class="team-card">
+                            <img src="assets/images/Fotos_autores/Juan_Cofre.jpg"
+                                alt="Foto de Juan Cofre, investigador en usabilidad del proyecto" class="team-avatar"
+                                width="96" height="96" loading="lazy" />
+                            <p class="team-name">Juan Cofre</p>
+                            <p class="team-role">Investigador en Usabilidad</p>
+                            <p class="team-bio">Realiza pruebas de usuario con personas en situacion de discapacidad y
+                                analiza
+                                metricas de experiencia de usuario. Autor de estudios sobre accesibilidad en plataformas
+                                educativas
+                                ecuatorianas.</p>
+                        </article>
+                    </li>
+                </ul>
+            </section>
 
-      <!-- DECLARACION DE ACCESIBILIDAD
+            <!-- DECLARACION DE ACCESIBILIDAD
       <section class="about-section" aria-labelledby="accessibility-heading">
         <span class="section-eyebrow" aria-hidden="true">Nuestro compromiso</span>
         <h2 class="section-title" id="accessibility-heading">Declaracion de Accesibilidad</h2>
@@ -864,52 +367,13 @@
         </div>
       </section> -->
 
-    </div>
-  </main>
+        </div>
+    </main>
 
-  <div id="footer-container" class="mt-auto"></div>
+    <div id="footer-container" class="mt-auto"></div>
 
-  <script src="./js/loadComponents.js"></script>
-
-  <script>
-    (function () {
-      'use strict';
-      var btn = document.getElementById('transcript-toggle-btn');
-      var panel = document.getElementById('transcript-panel');
-      if (!btn || !panel) return;
-      btn.addEventListener('click', function () {
-        var expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        if (expanded) { panel.setAttribute('hidden', ''); } else { panel.removeAttribute('hidden'); }
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
-          panel.setAttribute('hidden', '');
-          btn.setAttribute('aria-expanded', 'false');
-          btn.focus();
-        }
-      });
-    })();
-  </script>
-
-  <script>
-    (function () {
-      'use strict';
-      document.addEventListener('DOMContentLoaded', function () {
-        setTimeout(function () {
-          var links = document.querySelectorAll('#header-container nav a');
-          links.forEach(function (l) {
-            if (l.getAttribute('href') === 'acercaDe.html') {
-              l.setAttribute('aria-current', 'page');
-              l.style.color = 'var(--color-primary)';
-              l.style.borderBottomColor = 'var(--color-accent)';
-            }
-          });
-        }, 200);
-      });
-    })();
-  </script>
-
+    <script src="./js/loadComponents.js"></script>
+    <script src="./js/acercaDe.js"></script>
 </body>
 
 </html>
