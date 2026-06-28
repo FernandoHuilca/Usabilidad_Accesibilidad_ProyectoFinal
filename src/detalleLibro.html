@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del Libro</title>
+    <link rel="stylesheet" href="/src/css/main.css" />
+    <link rel="stylesheet" href="/src/css/detalleLibro.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <main id="contenido-principal" tabindex="-1">
+      <div class="contenedor">
+        <article class="detalle-libro">
+          <img
+            class="detalle-libro__imagen"
+            src="/src/assets/images/portadas_libros/portada-bdd_in_action.jpg"
+            alt="Portada del libro BDD in Action de John Ferguson Smart"
+            width="280"
+            height="373"
+          />
+
+          <div class="detalle-libro__texto">
+            <h1 class="detalle-libro__titulo">BDD in Action</h1>
+
+            <dl class="detalle-libro__meta">
+              <dt class="detalle-libro__meta-clave">ISBN</dt>
+              <dd class="detalle-libro__meta-valor">978-1617291654</dd>
+
+              <dt class="detalle-libro__meta-clave">Autor</dt>
+              <dd class="detalle-libro__meta-valor">John Ferguson Smart</dd>
+
+              <dt class="detalle-libro__meta-clave">Género</dt>
+              <dd class="detalle-libro__meta-valor">Ingeniería de Software</dd>
+
+              <dt class="detalle-libro__meta-clave">Año</dt>
+              <dd class="detalle-libro__meta-valor">2014</dd>
+
+              <dt class="detalle-libro__meta-clave">Editorial</dt>
+              <dd class="detalle-libro__meta-valor">Manning Publications</dd>
+
+              <dt class="detalle-libro__meta-clave">Páginas</dt>
+              <dd class="detalle-libro__meta-valor">384</dd>
+            </dl>
+
+            <section
+              class="detalle-libro__sinopsis"
+              aria-labelledby="titulo-sinopsis"
+            >
+              <h2 class="detalle-libro__sinopsis-titulo" id="titulo-sinopsis">
+                Sinopsis
+              </h2>
+              <p class="detalle-libro__sinopsis-texto">
+                Breve descripción del libro...
+              </p>
+            </section>
+          </div>
+        </article>
+      </div>
+    </main>
+  </body>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- JavaScript -->
+  <script src="/src/js/loadLayout.js"></script>
+</html>

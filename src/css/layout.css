@@ -1,0 +1,51 @@
+/* layout.css: Estructura macro del sitio. Solo posicionamiento de grandes bloques */
+
+/* Página completa: footer siempre abajo */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+/* Contenedor de ancho máximo centrado */
+.contenedor {
+  width: 100%;
+  max-width: var(--max-ancho);
+  margin-inline: auto;
+  padding-inline: var(--sp-8);
+}
+
+/* Layout de dos columnas: sidebar + contenido */
+.layout-dos-columnas {
+  display: grid;
+  grid-template-columns: var(--ancho-sidebar) 1fr;
+  gap: var(--sp-8);
+  align-items: start;
+}
+
+/* Grid de tarjetas auto-responsive */
+.layout-grid-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--ancho-sidebar), 1fr));
+  gap: var(--sp-6);
+}
+
+/*  Responsive  */
+@media (max-width: 768px) {
+  .contenedor {
+    padding-inline: var(--sp-4);
+  }
+
+  .layout-dos-columnas {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+}

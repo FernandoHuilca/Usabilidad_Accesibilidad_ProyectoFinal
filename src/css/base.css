@@ -1,0 +1,111 @@
+/* Base.css: variables, resets y utilidades globales */
+
+:root {
+  /* Paleta de color  */
+  --color-verde-oscuro: #1a6b3a;
+  --color-verde-texto: #1a2e1a;
+  --color-acento: #c0392b;
+  --color-acento-hover: #a93226;
+  --color-texto: #1a1a1a;
+  --color-texto-suave: #6b7280;
+  --color-fondo: #f5f5f3;
+  --color-fondo-alt: #ffffff;
+  --color-footer-fondo: #0f0f0f;
+  --color-footer-texto: #d1d5db;
+  --color-borde: #e5e7eb;
+
+  /*  Tipografía  */
+  /* rem sobre px porque así se respeta zoom del navegador */
+  --fuente-base: system-ui, -apple-system, sans-serif;
+  --texto-xs: 0.75rem; /*  12px */
+  --texto-sm: 0.875rem; /*  14px */
+  --texto-md: 1rem; /*  16px — base */
+  --texto-lg: 1.25rem; /*  20px */
+  --texto-xl: 1.5rem; /*  24px */
+  --texto-2xl: 2rem; /*  32px */
+  --texto-3xl: 2.75rem; /*  44px */
+  --texto-4xl: clamp(2rem, 5vw, 3.75rem); /* hero responsive */
+
+  /*  Espaciado — escala 4px  */
+  --sp-1: 0.25rem; /*  4px */
+  --sp-2: 0.5rem; /*  8px */
+  --sp-3: 0.75rem; /* 12px */
+  --sp-4: 1rem; /* 16px */
+  --sp-6: 1.5rem; /* 24px */
+  --sp-8: 2rem; /* 32px */
+  --sp-12: 3rem; /* 48px */
+  --sp-16: 4rem; /* 64px */
+  --sp-24: 6rem; /* 96px */
+
+  /*  Bordes y sombras  */
+  --radio: 8px;
+  --radio-lg: 16px;
+  --sombra-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --sombra-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --sombra-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+
+  /*  Layout  */
+  --max-ancho: 1200px;
+  --ancho-sidebar: 260px;
+}
+
+/*  Reset mínimo  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+  font: inherit;
+}
+
+/*  Base del documento  */
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-base);
+  font-size: var(--texto-md);
+  line-height: 1.6;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+}
+
+/*  Foco accesible global — WCAG 2.4.7  */
+:focus-visible {
+  outline: 3px solid var(--color-verde-oscuro);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/*  Skip link — WCAG 2.4.1  */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-4);
+  z-index: 9999;
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--color-verde-oscuro);
+  color: var(--color-fondo);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 var(--radio) var(--radio);
+  transition: top 0.1s;
+}
+.skip-link:focus {
+  top: 0;
+}

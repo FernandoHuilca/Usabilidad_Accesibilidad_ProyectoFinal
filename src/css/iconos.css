@@ -1,0 +1,110 @@
+/* iconos.css: Sistema de íconos escalable */
+
+/* Base de ícono */
+.icono {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  line-height: 1;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* íconos de colores */
+.icono--primary {
+  color: var(--color-verde-oscuro);
+}
+
+.icono--secondary {
+  color: var(--color-acento); 
+}
+
+.icono--dark {
+  color: var(--color-texto); 
+}
+
+.icono--light {
+  color: var(--color-fondo-alt); 
+}
+
+.icono--muted {
+  color: var(--color-texto-suave); 
+}
+
+/* íconos con fondo */
+.icono--circle {
+  padding: 0.5em;
+  border-radius: 50%;
+  background: var(--color-fondo-alt); 
+  box-shadow: var(--sombra-sm); 
+}
+
+/* tamaños */
+.icono--xs {
+  width: var(--texto-xs); /* 0.75rem */
+  height: var(--texto-xs);
+}
+
+.icono--sm {
+  width: var(--texto-sm); /* 0.875rem */
+  height: var(--texto-sm);
+}
+
+.icono--md {
+  width: var(--texto-md); /* 1rem */
+  height: var(--texto-md);
+}
+
+.icono--lg {
+  width: var(--texto-lg); /* 1.25rem */
+  height: var(--texto-lg);
+}
+
+.icono--xl {
+  width: var(--texto-xl); /* 1.5rem */
+  height: var(--texto-xl);
+}
+
+.icono--2xl {
+  width: var(--texto-2xl); /* 2rem */
+  height: var(--texto-2xl);
+}
+
+.icono--3xl {
+  width: var(--texto-3xl); /* 2.75rem */
+  height: var(--texto-3xl);
+}
+
+/* íconos de relleno */
+.icono--filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* animaciones */
+.icono--spin {
+  animation: icono-spin 1s linear infinite;
+}
+
+@keyframes icono-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ícono con texto */
+/* Para cuando el ícono va junto a texto */
+.icono-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2); /* 0.5rem, existe en tu base */
+}
+
+.icono-text .icono {
+  flex-shrink: 0;
+}
