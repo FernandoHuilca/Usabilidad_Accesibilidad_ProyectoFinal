@@ -299,7 +299,8 @@
       background: #000;
     }
 
-    .video-wrapper iframe {
+    .video-wrapper iframe,
+    .video-wrapper video {
       position: absolute;
       top: 0;
       left: 0;
@@ -549,8 +550,8 @@
     <div class="container mx-auto px-6">
 
       <!-- ESTADISTICAS -->
-      <div class="stats-bar" role="region" aria-label="Estadisticas de BibioTec">
-        <!-- <div class="stat-item">
+      <!-- <div class="stats-bar" role="region" aria-label="Estadisticas de BibioTec">
+        <div class="stat-item">
           <span class="stat-number" aria-label="Mas de 15 000 libros digitales">15 000+</span>
           <span class="stat-label">Libros digitales</span>
         </div>
@@ -561,12 +562,12 @@
         <div class="stat-item">
           <span class="stat-number" aria-label="Mas de 120 categorias tematicas">120+</span>
           <span class="stat-label">Categorias tematicas</span>
-        </div> -->
+        </div>
         <div class="stat-item">
           <span class="stat-number">AA</span>
           <span class="stat-label">Conformidad WCAG 2.2</span>
         </div>
-      </div>
+      </div> -->
 
       <!-- MISION VISION -->
       <section class="about-section" aria-labelledby="mvv-heading">
@@ -717,11 +718,24 @@
         <p class="section-subtitle" style="margin-bottom:2rem;">Descubre en minutos como BibioTec transforma el acceso
           al conocimiento. El video incluye subtitulos en espanol activados por defecto y una transcripcion completa
           disponible a continuacion.</p>
-        <div class="video-wrapper" role="region" aria-label="Video institucional de BibioTec con subtitulos">
-          <iframe id="institutional-video" src="https://www.youtube.com/embed/HoMk6RKBZSY?cc_load_policy=1&hl=es&rel=0"
-            title="Video institucional de BibioTec: como democratizamos el acceso al conocimiento (con subtitulos en espanol activados)"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+        <div class="video-wrapper">
+          <video
+            id="institutional-video"
+            controls
+            preload="metadata"
+            poster="assets/images/Portada_Video.png"
+            aria-label="Video institucional de BibioTec: como democratizamos el acceso al conocimiento"
+          >
+            <source src="assets/multimedia/Presentacion.mp4" type="video/mp4">
+            <track
+              src="assets/multimedia/presentacion_subtitulos.vtt"
+              kind="subtitles"
+              srclang="es"
+              label="Español"
+              default
+            >
+            Tu navegador no soporta la reproducción de video.
+          </video>
         </div>
         <div class="transcript-box">
           <button type="button" id="transcript-toggle-btn" class="transcript-toggle" aria-expanded="false"
