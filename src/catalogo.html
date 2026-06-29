@@ -1,138 +1,564 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Libros - BibioTec</title>
-    <meta name="description" content="Explora nuestra colección de libros digitales accesibles en BibioTec.">
+    <meta name="description"
+        content="Explora el catálogo completo de la Biblioteca Digital BibioTec. Encuentra clásicos literarios, filtra por género y accede a los libros más populares.">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/catalogo.css">
 </head>
+
 <body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
-    
+
     <div id="header-container"></div>
-    
+
     <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
-        
-        <section class="carousel-section py-12 bg-white" aria-labelledby="carousel-heading">
-            <div class="container mx-auto px-6">
-                <div class="flex justify-between items-end mb-6">
-                    <div>
-                        <span class="section-eyebrow" aria-hidden="true">Tendencias</span>
-                        <h2 id="carousel-heading" class="section-title text-3xl">Libros más populares</h2>
-                    </div>
-                    <button id="toggle-carousel-btn" class="pause-play-btn" aria-label="Pausar carrusel automático" aria-pressed="false">
-                        <span class="icon-pause" aria-hidden="true">⏸ Pausar</span>
-                        <span class="icon-play hidden" aria-hidden="true">▶ Reproducir</span>
+
+        <!-- ══════════════════════════════════════════════
+             HERO
+        ══════════════════════════════════════════════ -->
+        <section class="catalog-hero" aria-labelledby="catalog-hero-heading">
+            <div class="catalog-hero-inner">
+                <span class="about-hero-eyebrow">Nuestra colección</span>
+                <h1 id="catalog-hero-heading">
+                    Catálogo de <span>Libros</span>
+                </h1>
+                <p class="about-hero-desc">
+                    Descubre miles de títulos de la literatura universal. Clásicos, narrativa moderna, filosofía y mucho más — todos accesibles para ti.
+                </p>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6">
+
+            <!-- ══════════════════════════════════════════
+                 SECCIÓN 1: CARRUSEL — Más populares
+            ══════════════════════════════════════════ -->
+            <section class="catalog-section" aria-labelledby="carousel-heading">
+                <span class="section-eyebrow" aria-hidden="true">Destacados</span>
+                <h2 class="section-title" id="carousel-heading">Los más populares</h2>
+                <p class="section-subtitle">Los títulos más leídos y valorados por nuestra comunidad.</p>
+
+                <!-- Controles del carrusel (encima, accesibles con teclado) -->
+                <div class="carousel-controls" role="group" aria-label="Controles del carrusel de libros populares">
+                    <button class="carousel-btn" id="carousel-prev"
+                        aria-label="Libro anterior" aria-controls="carousel-track">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+
+                    <button class="carousel-btn carousel-btn--pause" id="carousel-pause"
+                        aria-label="Pausar reproducción automática del carrusel"
+                        aria-pressed="false"
+                        aria-controls="carousel-track">
+                        <!-- Icono pausa (visible cuando está corriendo) -->
+                        <svg class="icon-pause" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <rect x="6" y="4" width="4" height="16" />
+                            <rect x="14" y="4" width="4" height="16" />
+                        </svg>
+                        <!-- Icono play (visible cuando está pausado) -->
+                        <svg class="icon-play" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
+                            style="display:none">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        <span class="carousel-btn-label">Pausar</span>
+                    </button>
+
+                    <button class="carousel-btn" id="carousel-next"
+                        aria-label="Siguiente libro" aria-controls="carousel-track">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </button>
                 </div>
 
-                <div class="carousel-container" role="region" aria-roledescription="carousel" aria-label="Libros en tendencia">
-                    <div class="carousel-track" id="carousel-track" aria-live="off">
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 de 4">
-                            <img src="assets/images/el_principito.png" alt="Portada del libro El Principito">
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
-                            <img src="assets/images/1984.png" alt="Portada del libro 1984">
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
-                            <img src="assets/images/cien_anos_de_soledad.png" alt="Portada del libro Cien años de soledad">
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
-                            <img src="assets/images/don_quijote.png" alt="Portada del libro Don Quijote de la Mancha">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <!-- Región del carrusel -->
+                <div class="carousel-wrapper"
+                    role="region"
+                    aria-label="Carrusel de libros más populares"
+                    aria-live="polite"
+                    aria-atomic="false">
 
-        <section class="grid-section py-12" aria-labelledby="grid-heading">
-            <div class="container mx-auto px-6">
-                <span class="section-eyebrow" aria-hidden="true">Colección Completa</span>
-                <h2 id="grid-heading" class="section-title text-3xl mb-8">Libros Disponibles</h2>
-                
-                <ul class="book-grid" role="list">
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/el_principito.png" alt="" role="presentation">
+                    <ul class="carousel-track" id="carousel-track" role="list"
+                        aria-label="Libros más populares">
+
+                        <!-- Slide 1 -->
+                        <li class="carousel-slide" role="listitem" aria-label="1 de 5">
+                            <article class="carousel-card">
+                                <div class="carousel-img-wrap">
+                                    <img src="./assets/images/don_quijote.png"
+                                        alt="Portada de Don Quijote de la Mancha de Miguel de Cervantes"
+                                        class="carousel-img" width="200" height="300" loading="eager" />
+                                    <span class="carousel-badge">N.º 1</span>
+                                </div>
+                                <div class="carousel-info">
+                                    <p class="carousel-genre">Novela · Siglo XVII</p>
+                                    <h3 class="carousel-title">Don Quijote de la Mancha</h3>
+                                    <p class="carousel-author">Miguel de Cervantes</p>
+                                    <p class="carousel-desc">La obra cumbre de la literatura española que narra las aventuras de un caballero andante que confunde la realidad con la ficción.</p>
+                                    <a href="./detalleLibro.html?id=don-quijote" class="carousel-cta">
+                                        Ver detalles
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Slide 2 -->
+                        <li class="carousel-slide" role="listitem" aria-label="2 de 5">
+                            <article class="carousel-card">
+                                <div class="carousel-img-wrap">
+                                    <img src="./assets/images/cien_anos.png"
+                                        alt="Portada de Cien años de soledad de Gabriel García Márquez"
+                                        class="carousel-img" width="200" height="300" loading="lazy" />
+                                    <span class="carousel-badge">N.º 2</span>
+                                </div>
+                                <div class="carousel-info">
+                                    <p class="carousel-genre">Realismo mágico · 1967</p>
+                                    <h3 class="carousel-title">Cien años de soledad</h3>
+                                    <p class="carousel-author">Gabriel García Márquez</p>
+                                    <p class="carousel-desc">La saga de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo. Premio Nobel de Literatura.</p>
+                                    <a href="./detalleLibro.html?id=cien-anos" class="carousel-cta">
+                                        Ver detalles
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Slide 3 -->
+                        <li class="carousel-slide" role="listitem" aria-label="3 de 5">
+                            <article class="carousel-card">
+                                <div class="carousel-img-wrap">
+                                    <img src="./assets/images/orgullo_prejuicio.png"
+                                        alt="Portada de Orgullo y prejuicio de Jane Austen"
+                                        class="carousel-img" width="200" height="300" loading="lazy" />
+                                    <span class="carousel-badge">N.º 3</span>
+                                </div>
+                                <div class="carousel-info">
+                                    <p class="carousel-genre">Novela romántica · 1813</p>
+                                    <h3 class="carousel-title">Orgullo y prejuicio</h3>
+                                    <p class="carousel-author">Jane Austen</p>
+                                    <p class="carousel-desc">La historia de Elizabeth Bennet y el señor Darcy es un clásico del romance y la crítica social de la Inglaterra del siglo XIX.</p>
+                                    <a href="./detalleLibro.html?id=orgullo-prejuicio" class="carousel-cta">
+                                        Ver detalles
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Slide 4 -->
+                        <li class="carousel-slide" role="listitem" aria-label="4 de 5">
+                            <article class="carousel-card">
+                                <div class="carousel-img-wrap">
+                                    <img src="./assets/images/crimen_castigo.png"
+                                        alt="Portada de Crimen y castigo de Fiódor Dostoyevski"
+                                        class="carousel-img" width="200" height="300" loading="lazy" />
+                                    <span class="carousel-badge">N.º 4</span>
+                                </div>
+                                <div class="carousel-info">
+                                    <p class="carousel-genre">Novela psicológica · 1866</p>
+                                    <h3 class="carousel-title">Crimen y castigo</h3>
+                                    <p class="carousel-author">Fiódor Dostoyevski</p>
+                                    <p class="carousel-desc">La atormentada mente de Raskolnikov después de cometer un asesinato. Una exploración profunda de la culpa, la redención y la moral.</p>
+                                    <a href="./detalleLibro.html?id=crimen-castigo" class="carousel-cta">
+                                        Ver detalles
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- Slide 5 -->
+                        <li class="carousel-slide" role="listitem" aria-label="5 de 5">
+                            <article class="carousel-card">
+                                <div class="carousel-img-wrap">
+                                    <img src="./assets/images/el_principito.png"
+                                        alt="Portada de El principito de Antoine de Saint-Exupéry"
+                                        class="carousel-img" width="200" height="300" loading="lazy" />
+                                    <span class="carousel-badge">N.º 5</span>
+                                </div>
+                                <div class="carousel-info">
+                                    <p class="carousel-genre">Fábula filosófica · 1943</p>
+                                    <h3 class="carousel-title">El principito</h3>
+                                    <p class="carousel-author">Antoine de Saint-Exupéry</p>
+                                    <p class="carousel-desc">Un viaje poético por el universo que reflexiona sobre la amistad, el amor y el sentido de la vida desde los ojos de un niño.</p>
+                                    <a href="./detalleLibro.html?id=el-principito" class="carousel-cta">
+                                        Ver detalles
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2.5"
+                                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <line x1="5" y1="12" x2="19" y2="12" />
+                                            <polyline points="12 5 19 12 12 19" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </article>
+                        </li>
+
+                    </ul><!-- /carousel-track -->
+                </div><!-- /carousel-wrapper -->
+
+                <!-- Indicadores de posición (puntos) -->
+                <div class="carousel-dots" role="group" aria-label="Posición en el carrusel">
+                    <button class="carousel-dot is-active" aria-label="Ir al libro 1: Don Quijote de la Mancha"
+                        aria-pressed="true" data-index="0"></button>
+                    <button class="carousel-dot" aria-label="Ir al libro 2: Cien años de soledad"
+                        aria-pressed="false" data-index="1"></button>
+                    <button class="carousel-dot" aria-label="Ir al libro 3: Orgullo y prejuicio"
+                        aria-pressed="false" data-index="2"></button>
+                    <button class="carousel-dot" aria-label="Ir al libro 4: Crimen y castigo"
+                        aria-pressed="false" data-index="3"></button>
+                    <button class="carousel-dot" aria-label="Ir al libro 5: El principito"
+                        aria-pressed="false" data-index="4"></button>
+                </div>
+
+            </section><!-- /carrusel -->
+
+
+            <!-- ══════════════════════════════════════════
+                 SECCIÓN 2: LIBROS DISPONIBLES — Grid tarjetas
+            ══════════════════════════════════════════ -->
+            <section class="catalog-section" aria-labelledby="books-heading">
+                <span class="section-eyebrow" aria-hidden="true">Colección completa</span>
+                <h2 class="section-title" id="books-heading">Libros disponibles</h2>
+                <p class="section-subtitle">Explora nuestra colección de clásicos de la literatura universal.</p>
+
+                <!-- Filtros por género -->
+                <div class="catalog-filters" role="group" aria-label="Filtrar libros por género">
+                    <button class="filter-btn is-active" data-genre="todos" aria-pressed="true">Todos</button>
+                    <button class="filter-btn" data-genre="novela" aria-pressed="false">Novela</button>
+                    <button class="filter-btn" data-genre="filosofia" aria-pressed="false">Filosofía</button>
+                    <button class="filter-btn" data-genre="romantico" aria-pressed="false">Romántico</button>
+                    <button class="filter-btn" data-genre="aventura" aria-pressed="false">Aventura</button>
+                    <button class="filter-btn" data-genre="drama" aria-pressed="false">Drama</button>
+                </div>
+
+                <!-- Anuncio en vivo para lectores de pantalla al filtrar -->
+                <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="filter-status"></p>
+
+                <!-- Grid de tarjetas -->
+                <ul class="books-grid" id="books-grid" role="list" aria-label="Lista de libros disponibles">
+
+                    <!-- Tarjeta 1 -->
+                    <li data-genre="novela">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/hamlet.png"
+                                    alt="Portada de Hamlet" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">El Principito</h3>
-                                <p class="book-author">Antoine de Saint-Exupéry</p>
-                                <p class="book-year">1943</p>
-                                <a href="detalleLibro.html?id=1" class="btn-leer" aria-label="Leer más sobre El Principito">Ver detalles</a>
+                                <span class="book-genre-tag">Drama</span>
+                                <h3 class="book-title">Hamlet</h3>
+                                <p class="book-author">William Shakespeare</p>
+                                <p class="book-year">
+                                    <time datetime="1603">1603</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=hamlet" class="book-link"
+                                    aria-label="Ver detalles de Hamlet de William Shakespeare">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/1984.png" alt="" role="presentation">
+
+                    <!-- Tarjeta 2 -->
+                    <li data-genre="aventura">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/moby_dick.png"
+                                    alt="Portada de Moby Dick" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">1984</h3>
-                                <p class="book-author">George Orwell</p>
-                                <p class="book-year">1949</p>
-                                <a href="detalleLibro.html?id=2" class="btn-leer" aria-label="Leer más sobre 1984">Ver detalles</a>
+                                <span class="book-genre-tag">Aventura</span>
+                                <h3 class="book-title">Moby Dick</h3>
+                                <p class="book-author">Herman Melville</p>
+                                <p class="book-year">
+                                    <time datetime="1851">1851</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=moby-dick" class="book-link"
+                                    aria-label="Ver detalles de Moby Dick de Herman Melville">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/cien_anos_de_soledad.png" alt="" role="presentation">
+
+                    <!-- Tarjeta 3 -->
+                    <li data-genre="romantico">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/ana_karenina.png"
+                                    alt="Portada de Ana Karenina" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">Cien Años de Soledad</h3>
-                                <p class="book-author">Gabriel García Márquez</p>
-                                <p class="book-year">1967</p>
-                                <a href="detalleLibro.html?id=3" class="btn-leer" aria-label="Leer más sobre Cien Años de Soledad">Ver detalles</a>
+                                <span class="book-genre-tag">Romántico</span>
+                                <h3 class="book-title">Ana Karenina</h3>
+                                <p class="book-author">León Tolstói</p>
+                                <p class="book-year">
+                                    <time datetime="1878">1878</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=ana-karenina" class="book-link"
+                                    aria-label="Ver detalles de Ana Karenina de León Tolstói">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/don_quijote.png" alt="" role="presentation">
+
+                    <!-- Tarjeta 4 -->
+                    <li data-genre="filosofia">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/odisea.png"
+                                    alt="Portada de La Odisea" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">Don Quijote de la Mancha</h3>
-                                <p class="book-author">Miguel de Cervantes</p>
-                                <p class="book-year">1605</p>
-                                <a href="detalleLibro.html?id=4" class="btn-leer" aria-label="Leer más sobre Don Quijote">Ver detalles</a>
+                                <span class="book-genre-tag">Épica</span>
+                                <h3 class="book-title">La Odisea</h3>
+                                <p class="book-author">Homero</p>
+                                <p class="book-year">
+                                    <time datetime="-800">~800 a.C.</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=odisea" class="book-link"
+                                    aria-label="Ver detalles de La Odisea de Homero">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/rayuela.png" alt="" role="presentation">
+
+                    <!-- Tarjeta 5 -->
+                    <li data-genre="novela">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/grandes_esperanzas.png"
+                                    alt="Portada de Grandes esperanzas" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">Rayuela</h3>
-                                <p class="book-author">Julio Cortázar</p>
-                                <p class="book-year">1963</p>
-                                <a href="detalleLibro.html?id=5" class="btn-leer" aria-label="Leer más sobre Rayuela">Ver detalles</a>
+                                <span class="book-genre-tag">Novela</span>
+                                <h3 class="book-title">Grandes esperanzas</h3>
+                                <p class="book-author">Charles Dickens</p>
+                                <p class="book-year">
+                                    <time datetime="1861">1861</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=grandes-esperanzas" class="book-link"
+                                    aria-label="Ver detalles de Grandes esperanzas de Charles Dickens">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                    <li class="book-card">
-                        <article>
-                            <div class="book-image-wrapper">
-                                <img src="assets/images/orgullo_y_prejuicio.png" alt="" role="presentation">
+
+                    <!-- Tarjeta 6 -->
+                    <li data-genre="aventura">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/robinson_crusoe.png"
+                                    alt="Portada de Robinson Crusoe" class="book-img"
+                                    width="160" height="220" loading="lazy" />
                             </div>
                             <div class="book-info">
-                                <h3 class="book-title">Orgullo y Prejuicio</h3>
-                                <p class="book-author">Jane Austen</p>
-                                <p class="book-year">1813</p>
-                                <a href="detalleLibro.html?id=6" class="btn-leer" aria-label="Leer más sobre Orgullo y Prejuicio">Ver detalles</a>
+                                <span class="book-genre-tag">Aventura</span>
+                                <h3 class="book-title">Robinson Crusoe</h3>
+                                <p class="book-author">Daniel Defoe</p>
+                                <p class="book-year">
+                                    <time datetime="1719">1719</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=robinson-crusoe" class="book-link"
+                                    aria-label="Ver detalles de Robinson Crusoe de Daniel Defoe">
+                                    Ver detalles
+                                </a>
                             </div>
                         </article>
                     </li>
-                </ul>
-            </div>
-        </section>
+
+                    <!-- Tarjeta 7 -->
+                    <li data-genre="filosofia">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/el_extranjero.png"
+                                    alt="Portada de El extranjero" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Filosofía</span>
+                                <h3 class="book-title">El extranjero</h3>
+                                <p class="book-author">Albert Camus</p>
+                                <p class="book-year">
+                                    <time datetime="1942">1942</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=el-extranjero" class="book-link"
+                                    aria-label="Ver detalles de El extranjero de Albert Camus">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- Tarjeta 8 -->
+                    <li data-genre="drama">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/madame_bovary.png"
+                                    alt="Portada de Madame Bovary" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Drama</span>
+                                <h3 class="book-title">Madame Bovary</h3>
+                                <p class="book-author">Gustave Flaubert</p>
+                                <p class="book-year">
+                                    <time datetime="1857">1857</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=madame-bovary" class="book-link"
+                                    aria-label="Ver detalles de Madame Bovary de Gustave Flaubert">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- Tarjeta 9 -->
+                    <li data-genre="aventura">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/la_isla_del_tesoro.png"
+                                    alt="Portada de La isla del tesoro" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Aventura</span>
+                                <h3 class="book-title">La isla del tesoro</h3>
+                                <p class="book-author">Robert L. Stevenson</p>
+                                <p class="book-year">
+                                    <time datetime="1883">1883</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=isla-tesoro" class="book-link"
+                                    aria-label="Ver detalles de La isla del tesoro de Robert L. Stevenson">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- Tarjeta 10 -->
+                    <li data-genre="novela">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/guerra_paz.png"
+                                    alt="Portada de Guerra y paz" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Novela histórica</span>
+                                <h3 class="book-title">Guerra y paz</h3>
+                                <p class="book-author">León Tolstói</p>
+                                <p class="book-year">
+                                    <time datetime="1869">1869</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=guerra-paz" class="book-link"
+                                    aria-label="Ver detalles de Guerra y paz de León Tolstói">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- Tarjeta 11 -->
+                    <li data-genre="filosofia">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/el_proceso.png"
+                                    alt="Portada de El proceso" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Filosofía</span>
+                                <h3 class="book-title">El proceso</h3>
+                                <p class="book-author">Franz Kafka</p>
+                                <p class="book-year">
+                                    <time datetime="1925">1925</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=el-proceso" class="book-link"
+                                    aria-label="Ver detalles de El proceso de Franz Kafka">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                    <!-- Tarjeta 12 -->
+                    <li data-genre="romantico">
+                        <article class="book-card">
+                            <div class="book-img-wrap">
+                                <img src="./assets/images/jane_eyre.png"
+                                    alt="Portada de Jane Eyre" class="book-img"
+                                    width="160" height="220" loading="lazy" />
+                            </div>
+                            <div class="book-info">
+                                <span class="book-genre-tag">Romántico</span>
+                                <h3 class="book-title">Jane Eyre</h3>
+                                <p class="book-author">Charlotte Brontë</p>
+                                <p class="book-year">
+                                    <time datetime="1847">1847</time>
+                                </p>
+                                <a href="./detalleLibro.html?id=jane-eyre" class="book-link"
+                                    aria-label="Ver detalles de Jane Eyre de Charlotte Brontë">
+                                    Ver detalles
+                                </a>
+                            </div>
+                        </article>
+                    </li>
+
+                </ul><!-- /books-grid -->
+
+                <!-- Mensaje cuando no hay resultados -->
+                <p class="no-results" id="no-results" hidden>
+                    No se encontraron libros en esta categoría.
+                </p>
+
+            </section><!-- /libros disponibles -->
+
+        </div><!-- /container -->
     </main>
 
     <div id="footer-container" class="mt-auto"></div>
@@ -140,4 +566,5 @@
     <script src="./js/loadComponents.js"></script>
     <script src="./js/catalogo.js"></script>
 </body>
+
 </html>
