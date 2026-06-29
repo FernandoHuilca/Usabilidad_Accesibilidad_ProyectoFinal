@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BibioTec - Inicio</title>
+  <link rel="stylesheet" href="./css/global.css">
+</head>
+<body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
+  
+  <!-- ====== HEADER ====== -->
+  <div id="header-container"></div>
+
+  <!-- ====== MAIN LANDING ================================================= -->
+  <main id="main-content" tabindex="-1" class="flex-grow container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center gap-12 md:gap-20 focus:outline-none">
+    
+    <div class="w-full md:w-1/2 flex flex-col items-start text-left z-10">
+      <p class="text-sm font-semibold tracking-wider text-gray-500 uppercase mb-3">Tu Biblioteca Digital</p>
+      
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        El conocimiento a tu alcance con <span class="text-primary">BibioTec</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed font-light">
+        Explora miles de recursos literarios, académicos y de investigación en un entorno moderno y diseñado con los más altos estándares de accesibilidad para todos.
+      </p>
+      
+      <a href="catalogo.html" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white text-lg font-medium py-3.5 px-8 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-accent/50 focus:ring-offset-2">
+        Ir al Catálogo
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="w-full md:w-1/2 relative z-0">
+      <div class="absolute -inset-4 bg-gray-300 mix-blend-multiply rounded-[2.5rem] blur-2xl opacity-70" aria-hidden="true"></div>
+      <div class="absolute -inset-1 bg-accent/10 rounded-[2.5rem] blur-2xl opacity-60" aria-hidden="true"></div>
+      
+      <img 
+        src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1000&auto=format&fit=crop" 
+        alt="Interior de una biblioteca moderna iluminada" 
+        class="relative w-full rounded-2xl shadow-2xl object-cover h-[400px] md:h-[550px] border border-gray-100" 
+      />
+    </div>
+
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <div id="footer-container" class="mt-auto"></div>
+
+  <script src="./js/loadComponents.js"></script>
+
+</body>
+</html>

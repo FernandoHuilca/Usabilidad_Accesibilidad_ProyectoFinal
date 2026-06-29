@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #064e3b;
+  --color-accent: #c2410c;
+  --color-accent-hover: #9a3412;
+}
+
+@source "../index.html";
+@source "../formulario.html";
+@source "../acercaDe.html";
+@source "../detalleLibro.html";
+
+
+@import "./forms.css";
+@import "./acercaDe.css";

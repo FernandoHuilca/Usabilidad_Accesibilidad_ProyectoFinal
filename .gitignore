@@ -1,0 +1,11 @@
+# Dependencias de Node 
+node_modules/
+
+# Logs de npm
+npm-debug.log*
+*.log
+
+# Archivos ocultos del sistema operativo (Mac/Windows)
+.DS_Store
+Thumbs.db
+

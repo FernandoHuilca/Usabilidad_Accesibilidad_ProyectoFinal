@@ -1,70 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detalle del Libro</title>
-    <link rel="stylesheet" href="/src/css/main.css" />
-    <link rel="stylesheet" href="/src/css/detalleLibro.css" />
-  </head>
-  <body>
-    <!-- Header -->
-    <div id="header"></div>
 
-    <main id="contenido-principal" tabindex="-1">
-      <div class="contenedor">
-        <article class="detalle-libro">
-          <img
-            class="detalle-libro__imagen"
-            src="/src/assets/images/portadas_libros/portada-bdd_in_action.jpg"
-            alt="Portada del libro BDD in Action de John Ferguson Smart"
-            width="280"
-            height="373"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del Libro - BibioTec</title>
+  <link rel="stylesheet" href="./css/layout.css" />
+</head>
 
-          <div class="detalle-libro__texto">
-            <h1 class="detalle-libro__titulo">BDD in Action</h1>
+<body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
+  <!-- ====== HEADER ====== -->
+  <div id="header-container"></div>
 
-            <dl class="detalle-libro__meta">
-              <dt class="detalle-libro__meta-clave">ISBN</dt>
-              <dd class="detalle-libro__meta-valor">978-1617291654</dd>
+  <!-- ====== MAIN ======================================================== -->
+  <main id="main-content" tabindex="-1" class="flex-grow container mx-auto px-6 py-16 md:py-24 focus:outline-none">
+    <div class="max-w-4xl mx-auto">
+      <article class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-12 items-start py-8">
+        <img class="w-full rounded-2xl shadow-xl sticky top-24 max-w-[240px] md:max-w-none mx-auto md:mx-0 border border-gray-100"
+          src="./assets/images/portadas_libros/portada-bdd_in_action.jpg"
+          alt="Portada del libro BDD in Action de John Ferguson Smart" width="280" height="373" />
 
-              <dt class="detalle-libro__meta-clave">Autor</dt>
-              <dd class="detalle-libro__meta-valor">John Ferguson Smart</dd>
+        <div class="min-w-0">
+          <h1 class="text-3xl md:text-4xl font-extrabold text-primary leading-tight mb-6">
+            BDD in Action
+          </h1>
 
-              <dt class="detalle-libro__meta-clave">Género</dt>
-              <dd class="detalle-libro__meta-valor">Ingeniería de Software</dd>
+          <dl class="grid grid-cols-[max-content_1fr] gap-x-6 gap-y-3 mb-8 text-base">
+            <dt class="font-semibold text-gray-900">ISBN</dt>
+            <dd class="text-gray-600">978-1617291654</dd>
 
-              <dt class="detalle-libro__meta-clave">Año</dt>
-              <dd class="detalle-libro__meta-valor">2014</dd>
+            <dt class="font-semibold text-gray-900">Autor</dt>
+            <dd class="text-gray-600">John Ferguson Smart</dd>
 
-              <dt class="detalle-libro__meta-clave">Editorial</dt>
-              <dd class="detalle-libro__meta-valor">Manning Publications</dd>
+            <dt class="font-semibold text-gray-900">Género</dt>
+            <dd class="text-gray-600">Ingeniería de Software</dd>
 
-              <dt class="detalle-libro__meta-clave">Páginas</dt>
-              <dd class="detalle-libro__meta-valor">384</dd>
-            </dl>
+            <dt class="font-semibold text-gray-900">Año</dt>
+            <dd class="text-gray-600">2014</dd>
 
-            <section
-              class="detalle-libro__sinopsis"
-              aria-labelledby="titulo-sinopsis"
-            >
-              <h2 class="detalle-libro__sinopsis-titulo" id="titulo-sinopsis">
-                Sinopsis
-              </h2>
-              <p class="detalle-libro__sinopsis-texto">
-                Breve descripción del libro...
-              </p>
-            </section>
-          </div>
-        </article>
-      </div>
-    </main>
-  </body>
+            <dt class="font-semibold text-gray-900">Editorial</dt>
+            <dd class="text-gray-600">Manning Publications</dd>
 
-  <!-- Footer -->
-  <div id="footer"></div>
+            <dt class="font-semibold text-gray-900">Páginas</dt>
+            <dd class="text-gray-600">384</dd>
+          </dl>
+
+          <section class="border-t border-gray-200 pt-6" aria-labelledby="titulo-sinopsis">
+            <h2 class="text-xl font-bold text-gray-900 mb-3" id="titulo-sinopsis">
+              Sinopsis
+            </h2>
+            <p class="text-gray-600 leading-relaxed font-light">
+              BDD in Action es una guía práctica para el desarrollo guiado por comportamiento (Behavior-Driven Development). Enseña cómo diseñar, construir e implementar software de alta calidad que responda exactamente a las necesidades de negocio. A través de este libro, aprenderás a fomentar la colaboración entre desarrolladores, testers y analistas de negocio utilizando ejemplos concretos para guiar el desarrollo de la aplicación.
+            </p>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <div id="footer-container" class="mt-auto"></div>
 
   <!-- JavaScript -->
-  <script src="/src/js/loadLayout.js"></script>
+  <script src="./js/loadComponents.js"></script>
+</body>
+
 </html>

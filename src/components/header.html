@@ -1,28 +1,38 @@
-<body>
-  <a class="skip-link" href="#contenido-principal">Saltar al contenido</a>
+<a href="#main-content"
+  class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-white focus:text-primary focus:font-bold focus:shadow-lg focus:top-0 focus:left-0">
+  Saltar al contenido principal
+</a>
 
-  <header class="header">
-    <div class="contenedor header__inner">
-      <a href="/index.html" class="header__logo">
-        <!-- Ícono SVG inline -->
-        <svg class="icono icono--secondary" aria-hidden="true">
-          <use href="/src/assets/icons/sprite.svg#icono-libro" />
-        </svg>
-        <span>BibioTec</span>
-      </a>
-      <nav aria-label="Navegación principal">
-        <ul class="nav__lista" role="list">
-          <li>
-            <a href="/catalogo.html" class="nav__enlace"> Catálogo </a>
-          </li>
-          <li>
-            <a href="/formulario.html" class="nav__enlace"> Formulario </a>
-          </li>
-          <li>
-            <a href="/nosotros.html" class="nav__enlace"> Nosotros </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-</body>
+<header class="bg-gray-50 backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+
+    <a href="index.html"
+      class="flex items-center gap-3 text-3xl font-extrabold text-primary hover:opacity-80 transition-opacity rounded-md p-1"
+      aria-label="Inicio - BibioTec">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+        class="w-9 h-9 text-accent hover:animate-pulse" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+      </svg>
+      <span class="tracking-tight">BibioTec</span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul class="flex flex-wrap items-center justify-center gap-2 sm:gap-8 text-base font-bold text-gray-600">
+        <li>
+          <a href="catalogo.html"
+            class="hover:text-primary py-1 border-b-2 border-transparent hover:border-accent transition-colors">Catálogo</a>
+        </li>
+        <li>
+          <a href="formulario.html"
+            class="hover:text-primary py-1 border-b-2 border-transparent hover:border-accent transition-colors">Formulario</a>
+        </li>
+        <li>
+          <a href="acercaDe.html"
+            class="hover:text-primary py-1 border-b-2 border-transparent hover:border-accent transition-colors">Nosotros</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
