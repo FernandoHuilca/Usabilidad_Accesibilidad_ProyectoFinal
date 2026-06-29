@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Libros - BibioTec</title>
+    <meta name="description" content="Explora nuestra colección de libros digitales accesibles en BibioTec.">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/catalogo.css">
+</head>
+<body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
+    
+    <div id="header-container"></div>
+    
+    <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
+        
+        <section class="carousel-section py-12 bg-white" aria-labelledby="carousel-heading">
+            <div class="container mx-auto px-6">
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <span class="section-eyebrow" aria-hidden="true">Tendencias</span>
+                        <h2 id="carousel-heading" class="section-title text-3xl">Libros más populares</h2>
+                    </div>
+                    <button id="toggle-carousel-btn" class="pause-play-btn" aria-label="Pausar carrusel automático" aria-pressed="false">
+                        <span class="icon-pause" aria-hidden="true">⏸ Pausar</span>
+                        <span class="icon-play hidden" aria-hidden="true">▶ Reproducir</span>
+                    </button>
+                </div>
+
+                <div class="carousel-container" role="region" aria-roledescription="carousel" aria-label="Libros en tendencia">
+                    <div class="carousel-track" id="carousel-track" aria-live="off">
+                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="1 de 4">
+                            <img src="assets/images/el_principito.png" alt="Portada del libro El Principito">
+                        </div>
+                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
+                            <img src="assets/images/1984.png" alt="Portada del libro 1984">
+                        </div>
+                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
+                            <img src="assets/images/cien_anos_de_soledad.png" alt="Portada del libro Cien años de soledad">
+                        </div>
+                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
+                            <img src="assets/images/don_quijote.png" alt="Portada del libro Don Quijote de la Mancha">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-section py-12" aria-labelledby="grid-heading">
+            <div class="container mx-auto px-6">
+                <span class="section-eyebrow" aria-hidden="true">Colección Completa</span>
+                <h2 id="grid-heading" class="section-title text-3xl mb-8">Libros Disponibles</h2>
+                
+                <ul class="book-grid" role="list">
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/el_principito.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">El Principito</h3>
+                                <p class="book-author">Antoine de Saint-Exupéry</p>
+                                <p class="book-year">1943</p>
+                                <a href="detalleLibro.html?id=1" class="btn-leer" aria-label="Leer más sobre El Principito">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/1984.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">1984</h3>
+                                <p class="book-author">George Orwell</p>
+                                <p class="book-year">1949</p>
+                                <a href="detalleLibro.html?id=2" class="btn-leer" aria-label="Leer más sobre 1984">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/cien_anos_de_soledad.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Cien Años de Soledad</h3>
+                                <p class="book-author">Gabriel García Márquez</p>
+                                <p class="book-year">1967</p>
+                                <a href="detalleLibro.html?id=3" class="btn-leer" aria-label="Leer más sobre Cien Años de Soledad">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/don_quijote.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Don Quijote de la Mancha</h3>
+                                <p class="book-author">Miguel de Cervantes</p>
+                                <p class="book-year">1605</p>
+                                <a href="detalleLibro.html?id=4" class="btn-leer" aria-label="Leer más sobre Don Quijote">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/rayuela.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Rayuela</h3>
+                                <p class="book-author">Julio Cortázar</p>
+                                <p class="book-year">1963</p>
+                                <a href="detalleLibro.html?id=5" class="btn-leer" aria-label="Leer más sobre Rayuela">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="book-card">
+                        <article>
+                            <div class="book-image-wrapper">
+                                <img src="assets/images/orgullo_y_prejuicio.png" alt="" role="presentation">
+                            </div>
+                            <div class="book-info">
+                                <h3 class="book-title">Orgullo y Prejuicio</h3>
+                                <p class="book-author">Jane Austen</p>
+                                <p class="book-year">1813</p>
+                                <a href="detalleLibro.html?id=6" class="btn-leer" aria-label="Leer más sobre Orgullo y Prejuicio">Ver detalles</a>
+                            </div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container" class="mt-auto"></div>
+
+    <script src="./js/loadComponents.js"></script>
+    <script src="./js/catalogo.js"></script>
+</body>
+</html>
