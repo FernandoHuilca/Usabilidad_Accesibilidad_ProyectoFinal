@@ -1,81 +1,51 @@
 /* detalleLibro.css*/
 
-.detalle-libro {
-  display: grid;
-  grid-template-columns: var(--ancho-sidebar) 1fr;
-  gap: var(--sp-12);
-  align-items: start;
-  padding-block: var(--sp-12);
-}
-
-.detalle-libro__imagen {
-  width: 100%;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra-lg);
-  position: sticky;
-  top: calc(var(--sp-16) + var(--sp-8)); /* debajo del header sticky */
-}
-
-.detalle-libro__texto {
-  min-width: 0;
-}
-
-.detalle-libro__titulo {
-  font-size: var(--texto-3xl);
-  font-weight: 800;
-  color: var(--color-verde-texto);
-  line-height: 1.2;
-  margin-bottom: var(--sp-6);
-}
-
-/* Metadatos del libro */
-.detalle-libro__meta {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: var(--sp-2) var(--sp-4);
-  margin-bottom: var(--sp-8);
-  font-size: var(--texto-md);
-}
-
-.detalle-libro__meta-clave {
+/* ===== BOTÓN PDF ===== */
+.btn-pdf {
+  display: inline-flex; /* Ocupa todo el ancho */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  /* width: 100%; Ocupa todo el ancho del contenedor */
+  padding: 0.75rem 1.5rem; 
+  background-color: var(--color-accent, #C2410C);
+  color: #ffffff;
+  
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-texto);
+  text-decoration: none;
+  line-height: 1;
+  transition: background-color 0.15s, transform 0.1s;
+  cursor: pointer;
+  font-family: inherit;
+
+  margin: 0 auto;
 }
 
-.detalle-libro__meta-valor {
-  color: var(--color-texto-suave);
+.btn-pdf:hover {
+  background-color: var(--color-accent-hover, #9a3412);
+  transform: translateY(-2px);
 }
 
-/* Sinopsis separada visualmente */
-.detalle-libro__sinopsis {
-  border-top: 1px solid var(--color-borde);
-  padding-top: var(--sp-6);
+.btn-pdf:focus-visible {
+  outline: 3px solid var(--color-accent, #c2410c);
+  outline-offset: 3px;
 }
 
-.detalle-libro__sinopsis-titulo {
-  font-size: var(--texto-lg);
-  font-weight: 700;
-  margin-bottom: var(--sp-3);
+.btn-pdf .icono {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+  color: currentColor;
 }
 
-.detalle-libro__sinopsis-texto {
-  color: var(--color-texto-suave);
-  line-height: 1.8;
-}
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .detalle-libro {
-    grid-template-columns: 1fr;
-    gap: var(--sp-8);
-  }
-
-  .detalle-libro__imagen {
-    max-width: 220px;
-    margin-inline: auto;
-    position: static;
-  }
-
-  .detalle-libro__titulo {
-    font-size: var(--texto-2xl);
+  .btn-pdf {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
   }
 }

@@ -14,6 +14,9 @@ async function loadComponent(id, url) {
 
 // Cargar el header y el footer cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
-    loadComponent("header-container", "./components/header.html");
-    loadComponent("footer-container", "./components/footer.html");
+    const isInSubfolder = window.location.pathname.includes('/detalle-libros/');
+    const basePath = isInSubfolder ? '../' : './';
+    
+    loadComponent("header-container", `${basePath}components/header.html`);
+    loadComponent("footer-container", `${basePath}components/footer.html`);
 });
