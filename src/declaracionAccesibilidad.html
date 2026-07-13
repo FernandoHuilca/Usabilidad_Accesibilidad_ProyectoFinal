@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaración de Accesibilidad - BibioTec</title>
+    <meta name="description"
+        content="Declaración de accesibilidad de la Biblioteca Digital BibioTec, detallando el estado de conformidad con las pautas WCAG 2.2 nivel AA, limitaciones conocidas y canales de contacto.">
+    <link rel="stylesheet" href="./css/layout.css">
+</head>
+
+<body class="flex flex-col min-h-screen font-sans bg-slate-50 text-gray-900 selection:bg-accent selection:text-white">
+    <!-- ====== HEADER ====== -->
+    <div id="header-container"></div>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main id="main-content" tabindex="-1" class="flex-grow focus:outline-none">
+
+        <!-- HERO -->
+        <section class="about-hero" aria-labelledby="hero-heading">
+            <div class="about-hero-inner">
+                <span class="about-hero-eyebrow">Nuestro compromiso</span>
+                <h1 id="hero-heading">Accesibilidad en <span>BibioTec</span></h1>
+                <p class="about-hero-desc">
+                    Trabajamos de forma continua para garantizar un acceso equitativo, autónomo e inclusivo al conocimiento para toda la comunidad universitaria.
+                </p>
+            </div>
+        </section>
+
+        <!-- DETALLES DE LA DECLARACIÓN -->
+        <div class="container mx-auto px-6">
+            <section class="about-section" aria-labelledby="accessibility-heading">
+                <span class="section-eyebrow" aria-hidden="true">Compromiso ético y técnico</span>
+                <h2 class="section-title" id="accessibility-heading">Declaración de Accesibilidad</h2>
+
+                <div class="declaration-box" role="region" aria-labelledby="accessibility-heading">
+                    <span class="declaration-badge" aria-label="Nivel de conformidad WCAG 2.2 Nivel AA">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        WCAG 2.2 Conformidad Parcial (Nivel AA)
+                    </span>
+
+                    <h3 class="declaration-subheading">Estado de Conformidad</h3>
+                    <p class="declaration-p">La Biblioteca Digital BibioTec se compromete a garantizar la accesibilidad
+                        digital de su entorno web para toda la comunidad universitaria. Actualmente, la plataforma
+                        cumple de forma satisfactoria con la gran mayoría de las pautas internacionales <strong>WCAG 2.2
+                            AA</strong>; sin embargo, debido a limitaciones en un componente interactivo, nuestro
+                        estado actual es de <strong>Conformidad Parcial</strong>.</p>
+
+                    <h3 class="declaration-subheading">Limitaciones Conocidas y Brechas de Accesibilidad</h3>
+                    <p class="declaration-p">Trabajamos activamente para resolver cualquier barrera en el sitio. Al
+                        momento, se ha identificado la siguiente limitación en la interfaz:</p>
+                    <ul class="list-disc pl-6 text-emerald-100 text-sm space-y-2 mb-4">
+                        <li><strong>Navegación del Carrusel (Página de Catálogo):</strong> Los botones circulares para
+                            cambiar de libro en la sección de "Libros Populares" son visualmente pequeños. Esto puede
+                            dificultar que usuarios con pantallas táctiles o con dificultades de motricidad fina puedan
+                            presionarlos con facilidad. El equipo se encuentra ampliando el área de contacto de estos
+                            controles para resolverlo a la brevedad.</li>
+                    </ul>
+
+                    <h3 class="declaration-subheading">Tecnologías de Apoyo Compatibles</h3>
+                    <p class="declaration-p">BibioTec ha sido diseñado y verificado de forma manual y asistiva para
+                        operar correctamente con el lector de pantallas <strong>NVDA</strong> (en computadoras) y el
+                        sistema <strong>TalkBack</strong> (en dispositivos móviles), así como mediante navegación
+                        exclusiva utilizando la tecla <strong>Tab</strong>.</p>
+
+                    <h3 class="declaration-subheading">Contacto y Retroalimentación</h3>
+                    <p class="declaration-p">Si experimentas cualquier dificultad para acceder a un libro o necesitas
+                        reportar una barrera de accesibilidad no listada, por favor infórmanos inmediatamente a través de
+                        nuestro <a href="formulario.html" class="declaration-contact-link">formulario de sugerencias</a>
+                        o mediante el correo institucional del proyecto.</p>
+
+                    <p class="declaration-p" style="margin-bottom:0;">Esta declaración fue actualizada y verificada el
+                        <strong>13 de julio de 2026</strong>.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <div id="footer-container" class="mt-auto"></div>
+
+    <!-- JavaScript -->
+    <script src="./js/loadComponents.js"></script>
+    <script src="./js/declaracionAccesibilidad.js"></script>
+</body>
+
+</html>
