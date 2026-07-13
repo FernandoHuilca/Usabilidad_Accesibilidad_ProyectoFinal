@@ -31,6 +31,23 @@
     var isPlaying = !prefersReduced; // empieza pausado si reduce-motion activo
 
     /* ── Ir a un slide específico ── */
+    function updateSlideFocusability() {
+        slides.forEach(function (slide, i) {
+            var active = i === current;
+            var cta = slide.querySelector('.carousel-cta');
+
+            slide.setAttribute('aria-hidden', String(!active));
+
+            if (cta) {
+                if (active) {
+                    cta.removeAttribute('tabindex');
+                } else {
+                    cta.setAttribute('tabindex', '-1');
+                }
+            }
+        });
+    }
+
     function goTo(index) {
         current = (index + total) % total;
         track.style.transform = 'translateX(-' + (current * 100) + '%)';
@@ -46,6 +63,8 @@
         slides.forEach(function (slide, i) {
             slide.setAttribute('aria-label', (i + 1) + ' de ' + total);
         });
+
+        updateSlideFocusability();
     }
 
     /* ── Autoplay ── */
